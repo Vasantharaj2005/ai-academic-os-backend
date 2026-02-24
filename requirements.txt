@@ -1,0 +1,80 @@
+# Core Framework
+fastapi
+uvicorn[standard]
+pydantic
+pydantic-settings
+
+# Database
+sqlalchemy
+alembic
+asyncpg
+psycopg2-binary
+
+# Redis & Celery
+redis
+celery
+celery[redis]
+
+# AI & ML
+google-genai>=1.0.0
+openai
+anthropic
+langchain
+langchain-openai
+llama-index
+sentence-transformers
+transformers
+torch
+scikit-learn
+
+# Vector Database
+pinecone-client
+
+# AWS
+boto3
+
+# Authentication
+python-jose[cryptography]
+passlib[bcrypt]
+
+# HTTP
+httpx
+aiohttp
+
+# File Handling
+python-multipart
+python-docx
+python-pptx
+reportlab
+PyPDF2
+openpyxl
+
+# Utilities
+tenacity
+python-dotenv
+aiofiles
+orjson
+
+# Monitoring
+prometheus-client
+python-logstash
+
+# Testing
+pytest
+pytest-asyncio
+pytest-cov
+httpx
+factory-boy
+
+# Dev
+black
+isort
+flake8
+mypy
+
+
+# requirements.txt
+reportlab
+pypdf2
+xhtml2pdf
+weasyprint
