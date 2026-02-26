@@ -9,4 +9,11 @@ wheels/
 # Virtual environments
 .venv
 
+# Environment files — cover all variants, keep only the example template
 .env
+.env.*
+!.env.example
+
+# Generated output
+generated_pdfs/
+logs/

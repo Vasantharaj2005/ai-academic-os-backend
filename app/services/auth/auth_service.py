@@ -2,6 +2,7 @@
 
 from datetime import datetime, timedelta
 from typing import Optional
+import hashlib
 from jose import JWTError, jwt
 import bcrypt
 import logging
@@ -41,6 +42,11 @@ def create_refresh_token(data: dict) -> str:
     expire = datetime.utcnow() + timedelta(days=settings.REFRESH_TOKEN_EXPIRE_DAYS)
     to_encode.update({"exp": expire, "type": "refresh"})
     return jwt.encode(to_encode, settings.SECRET_KEY, algorithm=settings.JWT_ALGORITHM)
+
+
+def hash_refresh_token(token: str) -> str:
+    """SEC-005: Return SHA-256 hash of the token to store in DB instead of plaintext."""
+    return hashlib.sha256(token.encode("utf-8")).hexdigest()
 
 
 def decode_token(token: str) -> Optional[dict]:

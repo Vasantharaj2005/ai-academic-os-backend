@@ -1,6 +1,6 @@
 """Authentication API routes."""
 
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, Request, status
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from datetime import datetime
@@ -9,13 +9,55 @@ import logging
 from app.services.database.session import get_db
 from app.models.database.user import User
 from app.models.schemas.auth import UserCreate, UserLogin, UserResponse, TokenResponse, RefreshTokenRequest, PasswordChangeRequest
-from app.services.auth.auth_service import hash_password, verify_password, create_access_token, create_refresh_token, decode_token
+from app.services.auth.auth_service import (
+    hash_password, verify_password,
+    create_access_token, create_refresh_token,
+    hash_refresh_token, decode_token,
+)
 from app.api.dependencies.auth_deps import get_current_active_user
 from app.utils.helpers import generate_uuid
 from app.config import settings
 
 router = APIRouter()
 logger = logging.getLogger(__name__)
+
+# ── SEC-004: Login brute-force protection constants ────────────────────────────
+_MAX_LOGIN_ATTEMPTS = 5
+_LOGIN_WINDOW_SECONDS = 300  # 5 minutes lock window
+
+
+async def _check_login_rate_limit(client_ip: str, email: str) -> None:
+    """Raise HTTP 429 if the caller has exceeded login attempt threshold."""
+    try:
+        from app.core.memory import shared_memory
+        key = f"login_fail:{client_ip}:{email}"
+        count = await shared_memory.client.incr(key)
+        if count == 1:
+            await shared_memory.client.expire(key, _LOGIN_WINDOW_SECONDS)
+        if count > _MAX_LOGIN_ATTEMPTS:
+            raise HTTPException(
+                status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+                detail={
+                    "message": f"Too many failed login attempts. Try again in {_LOGIN_WINDOW_SECONDS // 60} minutes.",
+                    "code": "TOO_MANY_ATTEMPTS",
+                },
+                headers={"Retry-After": str(_LOGIN_WINDOW_SECONDS)},
+            )
+    except HTTPException:
+        raise
+    except Exception:
+        # Fail open — if Redis is unavailable don't block the request,
+        # but log so the operator knows rate limiting is degraded.
+        logger.warning("Login rate-limit check failed (Redis unavailable?); proceeding without guard.")
+
+
+async def _reset_login_rate_limit(client_ip: str, email: str) -> None:
+    """Clear the failed-attempt counter after a successful login."""
+    try:
+        from app.core.memory import shared_memory
+        await shared_memory.client.delete(f"login_fail:{client_ip}:{email}")
+    except Exception:
+        pass
 
 
 @router.post("/register", response_model=UserResponse, status_code=status.HTTP_201_CREATED)
@@ -52,12 +94,25 @@ async def register(user_in: UserCreate, db: AsyncSession = Depends(get_db)):
 
 
 @router.post("/login", response_model=TokenResponse)
-async def login(credentials: UserLogin, db: AsyncSession = Depends(get_db)):
+async def login(credentials: UserLogin, request: Request, db: AsyncSession = Depends(get_db)):
     """Login and get JWT tokens."""
+    # SEC-004: Check per-IP + per-email failed attempt count before querying
+    client_ip = request.client.host if request.client else "unknown"
+    await _check_login_rate_limit(client_ip, credentials.email)
+
     result = await db.execute(select(User).where(User.email == credentials.email))
     user = result.scalar_one_or_none()
 
     if not user or not verify_password(credentials.password, user.hashed_password):
+        # Increment failure counter only on bad credentials (not on other errors)
+        try:
+            from app.core.memory import shared_memory
+            key = f"login_fail:{client_ip}:{credentials.email}"
+            count = await shared_memory.client.incr(key)
+            if count == 1:
+                await shared_memory.client.expire(key, _LOGIN_WINDOW_SECONDS)
+        except Exception:
+            pass
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail={"message": "Invalid email or password", "code": "INVALID_CREDENTIALS"},
@@ -66,12 +121,15 @@ async def login(credentials: UserLogin, db: AsyncSession = Depends(get_db)):
     if not user.is_active:
         raise HTTPException(status_code=403, detail={"message": "Account disabled", "code": "ACCOUNT_DISABLED"})
 
+    # Successful login — clear fail counter
+    await _reset_login_rate_limit(client_ip, credentials.email)
+
     token_data = {"sub": user.id, "email": user.email, "role": user.role}
     access_token = create_access_token(token_data)
     refresh_token = create_refresh_token(token_data)
 
-    # Store refresh token hash
-    user.refresh_token = refresh_token
+    # SEC-005: Store hashed refresh token, NOT the raw token
+    user.refresh_token = hash_refresh_token(refresh_token)
     user.last_login_at = datetime.utcnow()
     await db.commit()
 
@@ -93,14 +151,16 @@ async def refresh_token(request: RefreshTokenRequest, db: AsyncSession = Depends
     result = await db.execute(select(User).where(User.id == payload.get("sub")))
     user = result.scalar_one_or_none()
 
-    if not user or user.refresh_token != request.refresh_token:
+    # SEC-005: Compare stored hash against hash of the submitted token
+    if not user or user.refresh_token != hash_refresh_token(request.refresh_token):
         raise HTTPException(status_code=401, detail={"message": "Token revoked", "code": "TOKEN_REVOKED"})
 
     token_data = {"sub": user.id, "email": user.email, "role": user.role}
     access_token = create_access_token(token_data)
     new_refresh_token = create_refresh_token(token_data)
 
-    user.refresh_token = new_refresh_token
+    # SEC-005: Store hash of the new refresh token
+    user.refresh_token = hash_refresh_token(new_refresh_token)
     await db.commit()
 
     return TokenResponse(
@@ -135,5 +195,7 @@ async def change_password(
         raise HTTPException(status_code=400, detail={"message": "Current password is incorrect", "code": "WRONG_PASSWORD"})
 
     current_user.hashed_password = hash_password(request.new_password)
+    # SEC-016: Invalidate all existing sessions when password changes
+    current_user.refresh_token = None
     await db.commit()
-    return {"message": "Password changed successfully"}
+    return {"message": "Password changed successfully. Please log in again."}

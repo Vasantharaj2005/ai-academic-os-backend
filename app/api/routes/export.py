@@ -80,7 +80,7 @@ async def export_syllabus(
         pdf_path = await generate_syllabus_pdf(course)
     except Exception as e:
         logger.error(f"Syllabus PDF failed for {course_id}: {e}", exc_info=True)
-        raise HTTPException(status_code=500, detail={"message": f"PDF generation failed: {e}", "code": "PDF_ERROR"})
+        raise HTTPException(status_code=500, detail={"message": "Syllabus PDF generation failed. Please try again.", "code": "PDF_ERROR"})
 
     background_tasks.add_task(_cleanup, pdf_path)
     return FileResponse(
@@ -125,7 +125,7 @@ async def export_question_paper(
         pdf_path = await generate_question_paper_pdf(asmt, course_title=course.title)
     except Exception as e:
         logger.error(f"Question paper PDF failed for {course_id}[{assessment_index}]: {e}", exc_info=True)
-        raise HTTPException(status_code=500, detail={"message": f"PDF generation failed: {e}", "code": "PDF_ERROR"})
+        raise HTTPException(status_code=500, detail={"message": "Question paper PDF generation failed. Please try again.", "code": "PDF_ERROR"})
 
     asmt_type = asmt.get("type", "assessment").lower().replace(" ", "_")
     background_tasks.add_task(_cleanup, pdf_path)
@@ -152,7 +152,7 @@ async def export_obe_report(
         pdf_path = await generate_obe_report_pdf(course.obe_data or {}, course_title=course.title)
     except Exception as e:
         logger.error(f"OBE report PDF failed for {course_id}: {e}", exc_info=True)
-        raise HTTPException(status_code=500, detail={"message": f"PDF generation failed: {e}", "code": "PDF_ERROR"})
+        raise HTTPException(status_code=500, detail={"message": "OBE report PDF generation failed. Please try again.", "code": "PDF_ERROR"})
 
     background_tasks.add_task(_cleanup, pdf_path)
     return FileResponse(
@@ -178,7 +178,7 @@ async def export_bundle(
         zip_path = await generate_course_bundle(course)
     except Exception as e:
         logger.error(f"Bundle generation failed for {course_id}: {e}", exc_info=True)
-        raise HTTPException(status_code=500, detail={"message": f"Bundle generation failed: {e}", "code": "PDF_ERROR"})
+        raise HTTPException(status_code=500, detail={"message": "Bundle generation failed. Please try again.", "code": "PDF_ERROR"})
 
     background_tasks.add_task(_cleanup, zip_path)
     return FileResponse(

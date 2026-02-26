@@ -1,5 +1,5 @@
 """Generation request/response schemas."""
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 from typing import Optional, List, Dict, Any
 from enum import Enum
 
@@ -15,9 +15,21 @@ class GenerationMode(str, Enum):
 class GenerationRequest(BaseModel):
     course_id: str
     mode: GenerationMode = GenerationMode.FULL
-    additional_context: Optional[str] = None
+    # SEC-009: Limit and sanitize user-supplied context to mitigate prompt injection
+    additional_context: Optional[str] = Field(None, max_length=2000)
     reference_docs: Optional[List[str]] = []  # S3 keys
     force_regenerate: bool = False
+
+    @field_validator("additional_context")
+    @classmethod
+    def sanitize_context(cls, v: Optional[str]) -> Optional[str]:
+        """Strip whitespace and enforce length cap to reduce prompt injection risk."""
+        if v is None:
+            return v
+        sanitized = v.strip()
+        # Remove null bytes and other control chars that could manipulate prompts
+        sanitized = "".join(c for c in sanitized if ord(c) >= 32 or c in "\n\t")
+        return sanitized[:2000] if sanitized else None
 
 
 class AgentStatus(BaseModel):

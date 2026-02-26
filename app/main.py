@@ -97,23 +97,25 @@ Authorization: Bearer <your-token>
     """,
     version=settings.APP_VERSION,
     lifespan=lifespan,
+    # SEC-017: Hide interactive docs AND raw schema in production
     docs_url="/api/docs" if settings.ENVIRONMENT != "production" else None,
     redoc_url="/api/redoc" if settings.ENVIRONMENT != "production" else None,
-    openapi_url="/api/openapi.json",
+    openapi_url="/api/openapi.json" if settings.ENVIRONMENT != "production" else None,
 )
 
 # ── Middleware ─────────────────────────────────────────────────────────────────
+# SEC-007: Explicit methods and headers instead of wildcard "*"
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.CORS_ORIGINS,
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "PUT", "DELETE", "PATCH"],
+    allow_headers=["Authorization", "Content-Type", "X-Request-ID", "Accept"],
     expose_headers=["X-Request-ID", "X-Process-Time"],
 )
 
-if not settings.DEBUG:
-    app.add_middleware(TrustedHostMiddleware, allowed_hosts=settings.ALLOWED_HOSTS)
+# SEC-011: Always apply TrustedHostMiddleware; DEBUG flag no longer bypasses it
+app.add_middleware(TrustedHostMiddleware, allowed_hosts=settings.ALLOWED_HOSTS)
 
 app.add_middleware(RequestIDMiddleware)
 app.add_middleware(RateLimitMiddleware)
@@ -125,6 +127,14 @@ async def add_process_time(request: Request, call_next):
     start = time.time()
     response = await call_next(request)
     response.headers["X-Process-Time"] = f"{time.time() - start:.4f}s"
+    # SEC-012: Add standard security response headers
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    response.headers["X-Frame-Options"] = "DENY"
+    response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
+    response.headers["X-XSS-Protection"] = "1; mode=block"
+    response.headers["Permissions-Policy"] = "geolocation=(), microphone=(), camera=()"
+    if settings.ENVIRONMENT == "production":
+        response.headers["Strict-Transport-Security"] = "max-age=63072000; includeSubDomains; preload"
     return response
 
 

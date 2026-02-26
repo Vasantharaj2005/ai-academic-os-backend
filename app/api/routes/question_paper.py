@@ -159,9 +159,10 @@ async def generate_question_paper(
 
     agent_result = await _paper_agent.process(context)
     if not agent_result.success:
+        logger.error(f"Question paper AI generation failed for {request.course_id}: {agent_result.error}")
         raise HTTPException(
             status_code=500,
-            detail={"message": f"AI generation failed: {agent_result.error}", "code": "AGENT_ERROR"},
+            detail={"message": "AI generation failed. Please try again.", "code": "AGENT_ERROR"},
         )
 
     # 4. Merge metadata + generated sections

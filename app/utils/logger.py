@@ -8,6 +8,29 @@ from typing import Dict, Any
 from app.config import settings
 
 
+class ColorFormatter(logging.Formatter):
+    """Formatter that colorizes log levels for terminal output."""
+
+    RESET = "\x1b[0m"
+    COLORS = {
+        "DEBUG": "\x1b[36m",      # Cyan
+        "INFO": "\x1b[32m",       # Green
+        "WARNING": "\x1b[33m",    # Yellow
+        "ERROR": "\x1b[31m",      # Red
+        "CRITICAL": "\x1b[1;31m", # Bold red
+    }
+
+    def format(self, record: logging.LogRecord) -> str:
+        original_levelname = record.levelname
+        color = self.COLORS.get(original_levelname, "")
+        if color:
+            record.levelname = f"{color}{original_levelname}{self.RESET}"
+        try:
+            return super().format(record)
+        finally:
+            record.levelname = original_levelname
+
+
 def setup_logging() -> None:
     """Configure structured logging for the application."""
 
@@ -16,6 +39,11 @@ def setup_logging() -> None:
         "disable_existing_loggers": False,
         "formatters": {
             "default": {
+                "format": "[%(asctime)s] %(levelname)s %(name)s:%(lineno)d - %(message)s",
+                "datefmt": "%Y-%m-%d %H:%M:%S",
+            },
+            "color": {
+                "()": ColorFormatter,
                 "format": "[%(asctime)s] %(levelname)s %(name)s:%(lineno)d - %(message)s",
                 "datefmt": "%Y-%m-%d %H:%M:%S",
             },
@@ -30,7 +58,7 @@ def setup_logging() -> None:
             "console": {
                 "class": "logging.StreamHandler",
                 "stream": sys.stdout,
-                "formatter": "default",
+                "formatter": "color",
                 "level": settings.LOG_LEVEL.value,
             },
             "file": {

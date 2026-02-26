@@ -2685,3 +2685,135 @@ assessments
 [2026-02-22 17:18:05] INFO app.main:62 - AI Academic OS backend started successfully
 [2026-02-22 17:19:39] WARNING app.services.ai.llm_service:328 - Using mock LLM — set GROQ_API_KEY or GOOGLE_API_KEY in .env
 [2026-02-22 17:19:39] WARNING app.services.ai.llm_service:328 - Using mock LLM — set GROQ_API_KEY or GOOGLE_API_KEY in .env
+[2026-02-25 09:21:17] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-02-25 09:21:17] INFO app.main:34 - Starting AI Academic OS backend...
+[2026-02-25 09:21:17] INFO app.services.database.session:66 - Database tables created successfully
+[2026-02-25 09:21:17] INFO app.main:49 - Database tables ready
+[2026-02-25 09:21:17] ERROR app.services.ai.llm_service:51 - Groq init failed: No module named 'groq'
+[2026-02-25 09:21:17] ERROR app.services.ai.llm_service:60 - google-genai not installed. Run: uv pip install google-genai>=1.0.0
+[2026-02-25 09:21:17] INFO app.services.ai.llm_service:89 - Primary LLM provider: mock
+[2026-02-25 09:21:17] ERROR app.services.ai.embedding_service:40 - google-genai not installed. Run: uv pip install google-genai>=1.0.0
+[2026-02-25 09:21:17] WARNING app.services.ai.embedding_service:57 - EmbeddingService: No embedding provider available. Using zero-vectors (set GOOGLE_API_KEY to enable real embeddings).
+[2026-02-25 09:21:17] WARNING app.services.ai.rag_service:31 - Pinecone not configured - RAG disabled (set PINECONE_API_KEY to enable)
+[2026-02-25 09:21:19] WARNING app.core.memory:46 - Redis unavailable (Timeout connecting to server). SharedMemory falling back to in-process dict — workflow state will not persist across restarts. Start Redis to enable persistent shared memory.
+[2026-02-25 09:21:19] INFO app.core.orchestrator:73 - AgentOrchestrator initialized with 6 agents
+[2026-02-25 09:21:19] INFO app.main:57 - Agent Orchestrator ready
+[2026-02-25 09:21:19] INFO app.main:62 - AI Academic OS backend started successfully
+[2026-02-25 12:09:14] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-02-25 12:09:14] INFO app.main:34 - Starting AI Academic OS backend...
+[2026-02-25 12:09:14] INFO app.services.database.session:66 - Database tables created successfully
+[2026-02-25 12:09:14] INFO app.main:49 - Database tables ready
+[2026-02-25 12:09:14] ERROR app.services.ai.llm_service:51 - Groq init failed: No module named 'groq'
+[2026-02-25 12:09:14] ERROR app.services.ai.llm_service:60 - google-genai not installed. Run: uv pip install google-genai>=1.0.0
+[2026-02-25 12:09:14] INFO app.services.ai.llm_service:89 - Primary LLM provider: mock
+[2026-02-25 12:09:15] ERROR app.services.ai.embedding_service:40 - google-genai not installed. Run: uv pip install google-genai>=1.0.0
+[2026-02-25 12:09:15] WARNING app.services.ai.embedding_service:57 - EmbeddingService: No embedding provider available. Using zero-vectors (set GOOGLE_API_KEY to enable real embeddings).
+[2026-02-25 12:09:15] WARNING app.services.ai.rag_service:31 - Pinecone not configured - RAG disabled (set PINECONE_API_KEY to enable)
+[2026-02-25 12:09:17] WARNING app.core.memory:46 - Redis unavailable (Timeout connecting to server). SharedMemory falling back to in-process dict — workflow state will not persist across restarts. Start Redis to enable persistent shared memory.
+[2026-02-25 12:09:17] INFO app.core.orchestrator:73 - AgentOrchestrator initialized with 6 agents
+[2026-02-25 12:09:17] INFO app.main:57 - Agent Orchestrator ready
+[2026-02-25 12:09:17] INFO app.main:62 - AI Academic OS backend started successfully
+[2026-02-25 12:15:41] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-02-25 12:15:41] INFO app.main:34 - Starting AI Academic OS backend...
+[2026-02-25 12:15:41] INFO app.services.database.session:66 - Database tables created successfully
+[2026-02-25 12:15:41] INFO app.main:49 - Database tables ready
+[2026-02-25 12:15:41] ERROR app.services.ai.llm_service:51 - Groq init failed: No module named 'groq'
+[2026-02-25 12:15:58] INFO app.services.ai.llm_service:58 - Gemini client initialised (model: gemini-2.0-flash)
+[2026-02-25 12:15:58] INFO app.services.ai.llm_service:89 - Primary LLM provider: gemini
+[2026-02-25 12:16:00] INFO app.services.ai.embedding_service:35 - EmbeddingService: Gemini ready (model: text-embedding-004, dim: 768)
+[2026-02-25 12:16:00] WARNING app.services.ai.rag_service:31 - Pinecone not configured - RAG disabled (set PINECONE_API_KEY to enable)
+[2026-02-25 12:16:02] WARNING app.core.memory:46 - Redis unavailable (Timeout connecting to server). SharedMemory falling back to in-process dict — workflow state will not persist across restarts. Start Redis to enable persistent shared memory.
+[2026-02-25 12:16:02] INFO app.core.orchestrator:73 - AgentOrchestrator initialized with 6 agents
+[2026-02-25 12:16:02] INFO app.main:57 - Agent Orchestrator ready
+[2026-02-25 12:16:02] INFO app.main:62 - AI Academic OS backend started successfully
+[2026-02-25 12:17:37] INFO app.main:67 - Shutting down...
+[2026-02-25 12:17:37] INFO app.main:72 - Shutdown complete
+[2026-02-25 12:18:29] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-02-25 12:18:29] INFO app.main:34 - Starting AI Academic OS backend...
+[2026-02-25 12:18:29] INFO app.services.database.session:66 - Database tables created successfully
+[2026-02-25 12:18:29] INFO app.main:49 - Database tables ready
+[2026-02-25 12:18:29] ERROR app.services.ai.llm_service:51 - Groq init failed: No module named 'groq'
+[2026-02-25 12:18:33] INFO app.services.ai.llm_service:58 - Gemini client initialised (model: gemini-2.0-flash)
+[2026-02-25 12:18:33] INFO app.services.ai.llm_service:89 - Primary LLM provider: gemini
+[2026-02-25 12:18:35] INFO app.services.ai.embedding_service:35 - EmbeddingService: Gemini ready (model: text-embedding-004, dim: 768)
+[2026-02-25 12:18:35] WARNING app.services.ai.rag_service:31 - Pinecone not configured - RAG disabled (set PINECONE_API_KEY to enable)
+[2026-02-25 12:18:37] WARNING app.core.memory:46 - Redis unavailable (Timeout connecting to server). SharedMemory falling back to in-process dict — workflow state will not persist across restarts. Start Redis to enable persistent shared memory.
+[2026-02-25 12:18:37] INFO app.core.orchestrator:73 - AgentOrchestrator initialized with 6 agents
+[2026-02-25 12:18:37] INFO app.main:57 - Agent Orchestrator ready
+[2026-02-25 12:18:37] INFO app.main:62 - AI Academic OS backend started successfully
+[2026-02-25 13:08:12] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-02-25 13:08:12] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-02-25 13:08:12] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-02-25 13:25:31] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-02-25 13:25:31] INFO app.main:34 - Starting AI Academic OS backend...
+[2026-02-25 13:25:31] INFO app.services.database.session:66 - Database tables created successfully
+[2026-02-25 13:25:31] INFO app.main:49 - Database tables ready
+[2026-02-25 13:25:31] ERROR app.services.ai.llm_service:51 - Groq init failed: No module named 'groq'
+[2026-02-25 13:25:33] INFO app.services.ai.llm_service:58 - Gemini client initialised (model: gemini-2.0-flash)
+[2026-02-25 13:25:33] INFO app.services.ai.llm_service:89 - Primary LLM provider: gemini
+[2026-02-25 13:25:34] INFO app.services.ai.embedding_service:35 - EmbeddingService: Gemini ready (model: text-embedding-004, dim: 768)
+[2026-02-25 13:25:34] WARNING app.services.ai.rag_service:31 - Pinecone not configured - RAG disabled (set PINECONE_API_KEY to enable)
+[2026-02-25 13:25:36] WARNING app.core.memory:46 - Redis unavailable (Timeout connecting to server). SharedMemory falling back to in-process dict — workflow state will not persist across restarts. Start Redis to enable persistent shared memory.
+[2026-02-25 13:25:36] INFO app.core.orchestrator:73 - AgentOrchestrator initialized with 6 agents
+[2026-02-25 13:25:36] INFO app.main:57 - Agent Orchestrator ready
+[2026-02-25 13:25:36] INFO app.main:62 - AI Academic OS backend started successfully
+[2026-02-25 13:30:03] INFO app.main:67 - Shutting down...
+[2026-02-25 13:30:03] INFO app.main:72 - Shutdown complete
+[2026-02-25 13:30:11] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-02-25 13:30:51] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-02-25 13:32:53] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-02-25 13:35:50] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-02-25 13:36:29] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-02-25 13:36:29] INFO app.services.ai.llm_service:89 - Primary LLM provider: mock
+[2026-02-25 13:36:41] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-02-25 13:36:42] INFO app.services.ai.llm_service:89 - Primary LLM provider: mock
+[2026-02-25 15:04:31] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-02-25 15:04:31] INFO app.main:34 - Starting AI Academic OS backend...
+[2026-02-25 15:04:31] INFO app.services.database.session:66 - Database tables created successfully
+[2026-02-25 15:04:31] INFO app.main:49 - Database tables ready
+[2026-02-25 15:04:34] INFO app.services.ai.llm_service:49 - Groq client initialised (model: llama-3.3-70b-versatile)
+[2026-02-25 15:04:39] INFO app.services.ai.llm_service:58 - Gemini client initialised (model: gemini-2.0-flash)
+[2026-02-25 15:04:39] INFO app.services.ai.llm_service:89 - Primary LLM provider: groq
+[2026-02-25 15:04:41] INFO app.services.ai.embedding_service:35 - EmbeddingService: Gemini ready (model: text-embedding-004, dim: 768)
+[2026-02-25 15:04:41] WARNING app.services.ai.rag_service:31 - Pinecone not configured - RAG disabled (set PINECONE_API_KEY to enable)
+[2026-02-25 15:04:43] WARNING app.core.memory:46 - Redis unavailable (Timeout connecting to server). SharedMemory falling back to in-process dict — workflow state will not persist across restarts. Start Redis to enable persistent shared memory.
+[2026-02-25 15:04:43] INFO app.core.orchestrator:73 - AgentOrchestrator initialized with 6 agents
+[2026-02-25 15:04:43] INFO app.main:57 - Agent Orchestrator ready
+[2026-02-25 15:04:43] INFO app.main:62 - AI Academic OS backend started successfully
+[2026-02-25 17:54:56] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-02-25 17:54:56] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-02-25 17:54:56] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-02-26 11:33:22] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-02-26 11:33:22] INFO app.main:34 - Starting AI Academic OS backend...
+[2026-02-26 11:33:23] ERROR app.main:51 - Database initialization failed: password authentication failed for user "postgres"
+[2026-02-26 11:33:24] INFO app.services.ai.llm_service:49 - Groq client initialised (model: llama-3.3-70b-versatile)
+[2026-02-26 11:33:28] INFO app.services.ai.llm_service:58 - Gemini client initialised (model: gemini-2.0-flash)
+[2026-02-26 11:33:28] INFO app.services.ai.llm_service:89 - Primary LLM provider: groq
+[2026-02-26 11:33:30] INFO app.services.ai.embedding_service:35 - EmbeddingService: Gemini ready (model: text-embedding-004, dim: 768)
+[2026-02-26 11:33:30] WARNING app.services.ai.rag_service:31 - Pinecone not configured - RAG disabled (set PINECONE_API_KEY to enable)
+[2026-02-26 11:33:32] WARNING app.core.memory:46 - Redis unavailable (Timeout connecting to server). SharedMemory falling back to in-process dict — workflow state will not persist across restarts. Start Redis to enable persistent shared memory.
+[2026-02-26 11:33:32] INFO app.core.orchestrator:73 - AgentOrchestrator initialized with 6 agents
+[2026-02-26 11:33:32] INFO app.main:57 - Agent Orchestrator ready
+[2026-02-26 11:33:32] INFO app.main:62 - AI Academic OS backend started successfully
+[2026-02-26 20:02:17] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-02-26 20:02:17] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-02-26 20:02:17] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-02-26 20:05:28] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-02-26 20:05:28] INFO app.main:34 - Starting AI Academic OS backend...
+[2026-02-26 20:05:28] INFO app.services.database.session:66 - Database tables created successfully
+[2026-02-26 20:05:28] INFO app.main:49 - Database tables ready
+[2026-02-26 20:05:29] INFO app.services.ai.llm_service:49 - Groq client initialised (model: llama-3.3-70b-versatile)
+[2026-02-26 20:05:34] INFO app.services.ai.llm_service:58 - Gemini client initialised (model: gemini-2.0-flash)
+[2026-02-26 20:05:34] INFO app.services.ai.llm_service:89 - Primary LLM provider: groq
+[2026-02-26 20:05:37] INFO app.services.ai.embedding_service:35 - EmbeddingService: Gemini ready (model: text-embedding-004, dim: 768)
+[2026-02-26 20:05:37] WARNING app.services.ai.rag_service:31 - Pinecone not configured - RAG disabled (set PINECONE_API_KEY to enable)
+[2026-02-26 20:05:39] WARNING app.core.memory:46 - Redis unavailable (Timeout connecting to server). SharedMemory falling back to in-process dict — workflow state will not persist across restarts. Start Redis to enable persistent shared memory.
+[2026-02-26 20:05:39] INFO app.core.orchestrator:73 - AgentOrchestrator initialized with 6 agents
+[2026-02-26 20:05:39] INFO app.main:57 - Agent Orchestrator ready
+[2026-02-26 20:05:39] INFO app.main:62 - AI Academic OS backend started successfully
+[2026-02-26 20:05:44] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-02-26 20:05:51] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-02-26 20:06:12] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-02-26 20:06:12] WARNING app.api.routes.auth:51 - Login rate-limit check failed (Redis unavailable?); proceeding without guard.
+[2026-02-26 20:07:23] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-02-26 20:07:43] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'

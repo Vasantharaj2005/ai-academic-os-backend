@@ -7,7 +7,23 @@ from pydantic_settings import BaseSettings
 from pydantic import ConfigDict, Field
 from typing import Optional, List
 from enum import Enum
+import logging
 import os
+
+_config_logger = logging.getLogger(__name__)
+
+# Known-weak values that must never be used in production
+_WEAK_SECRET_KEYS = {
+    "dev-secret-key-change-in-prod",
+    "secret",
+    "changeme",
+    "CHANGE_ME_GENERATE_WITH_SECRETS_TOKEN_HEX_64",
+    "your-secret-key",
+}
+_WEAK_DB_PASSWORDS = {
+    "", "postgres", "password", "12345", "123456", "admin",
+    "test", "changeme", "CHANGE_ME_STRONG_PASSWORD_HERE",
+}
 
 
 class EnvironmentType(str, Enum):
@@ -134,6 +150,40 @@ class Settings(BaseSettings):
     ALLOWED_EXTENSIONS: List[str] = [".pdf", ".docx", ".pptx", ".xlsx"]
 
     def model_post_init(self, __context):
+        # ── SEC-002: Reject known-weak JWT secret keys ──────────────────────
+        if self.SECRET_KEY in _WEAK_SECRET_KEYS:
+            if self.ENVIRONMENT == EnvironmentType.PRODUCTION:
+                raise ValueError(
+                    "FATAL: SECRET_KEY is a known-weak placeholder. "
+                    "Generate a strong key with: "
+                    "python -c \"import secrets; print(secrets.token_hex(64))\""
+                )
+            else:
+                _config_logger.warning(
+                    "⚠️  SECRET_KEY is a known-weak placeholder. "
+                    "Update it before deploying to production!"
+                )
+
+        # ── SEC-003: Reject trivially weak database passwords ───────────────
+        if self.POSTGRES_PASSWORD in _WEAK_DB_PASSWORDS:
+            if self.ENVIRONMENT == EnvironmentType.PRODUCTION:
+                raise ValueError(
+                    "FATAL: POSTGRES_PASSWORD is too weak for production. "
+                    "Generate a strong password with: "
+                    "python -c \"import secrets; print(secrets.token_urlsafe(32))\""
+                )
+            else:
+                _config_logger.warning(
+                    "⚠️  POSTGRES_PASSWORD is weak. Set a strong password before deploying!"
+                )
+
+        # ── SEC-011: Warn if DEBUG is enabled outside development ───────────
+        if self.DEBUG and self.ENVIRONMENT != EnvironmentType.DEVELOPMENT:
+            _config_logger.warning(
+                "⚠️  DEBUG=True is enabled in a non-development environment. "
+                "This disables TrustedHostMiddleware and may leak tracebacks!"
+            )
+
         if not self.DATABASE_URL:
             self.DATABASE_URL = (
                 f"postgresql+asyncpg://{self.POSTGRES_USER}:{self.POSTGRES_PASSWORD}"
