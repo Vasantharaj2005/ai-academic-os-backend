@@ -32,21 +32,26 @@ class RAGService:
             return
 
         try:
-            import pinecone
-            pinecone.init(
-                api_key=settings.PINECONE_API_KEY,
-                environment=settings.PINECONE_ENVIRONMENT,
-            )
+            from pinecone import Pinecone, ServerlessSpec
 
-            if settings.PINECONE_INDEX_NAME not in pinecone.list_indexes():
-                pinecone.create_index(
+            pc = Pinecone(api_key=settings.PINECONE_API_KEY)
+
+            # Check if index exists (handles v3 response object)
+            existing_indexes = [i.name if hasattr(i, "name") else i for i in pc.list_indexes()]
+
+            if settings.PINECONE_INDEX_NAME not in existing_indexes:
+                pc.create_index(
                     name=settings.PINECONE_INDEX_NAME,
                     dimension=settings.PINECONE_DIMENSION,
                     metric="cosine",
+                    spec=ServerlessSpec(
+                        cloud="aws",
+                        region="us-east-1"
+                    )
                 )
                 logger.info(f"Created Pinecone index: {settings.PINECONE_INDEX_NAME}")
 
-            self._index = pinecone.Index(settings.PINECONE_INDEX_NAME)
+            self._index = pc.Index(settings.PINECONE_INDEX_NAME)
             logger.info("RAG service initialized with Pinecone")
         except Exception as e:
             logger.error(f"Failed to initialize Pinecone: {e}")

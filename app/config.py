@@ -69,7 +69,10 @@ class Settings(BaseSettings):
     API_HOST: str = "0.0.0.0"
     API_PORT: int = 8000
     API_PREFIX: str = "/api/v1"
-    CORS_ORIGINS: List[str] = ["http://localhost:3000"]
+    CORS_ORIGINS: List[str] = [
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+    ]
 
     # Security
     SECRET_KEY: str = Field("dev-secret-key-change-in-prod", alias="SECRET_KEY")

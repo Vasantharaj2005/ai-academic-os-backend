@@ -40,7 +40,7 @@ class SharedMemory:
             await client.ping()
             self._client = client
             self._use_redis = True
-            logger.info("SharedMemory connected to Redis ✓")
+            logger.info("SharedMemory connected to Redis [OK]")
         except Exception as e:
             self._use_redis = False
             logger.warning(

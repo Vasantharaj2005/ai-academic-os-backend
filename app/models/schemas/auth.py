@@ -62,6 +62,24 @@ class UserResponse(BaseModel):
         from_attributes = True
 
 
+class UserUpdate(BaseModel):
+    email: Optional[EmailStr] = None
+    username: Optional[str] = Field(None, min_length=3, max_length=50)
+    full_name: Optional[str] = Field(None, min_length=2)
+    institution_id: Optional[str] = None
+    department: Optional[str] = None
+    avatar_url: Optional[str] = None
+
+    @field_validator("username")
+    @classmethod
+    def validate_username(cls, v: Optional[str]) -> Optional[str]:
+        if v is None:
+            return v
+        if not re.match(r"^[a-zA-Z0-9_.-]+$", v):
+            raise ValueError("Username may only contain letters, digits, underscores, dots, and hyphens")
+        return v
+
+
 class TokenResponse(BaseModel):
     access_token: str
     refresh_token: str

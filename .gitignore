@@ -17,3 +17,7 @@ wheels/
 # Generated output
 generated_pdfs/
 logs/
+
+.logs
+
+

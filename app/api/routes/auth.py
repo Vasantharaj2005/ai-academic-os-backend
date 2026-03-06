@@ -8,7 +8,15 @@ import logging
 
 from app.services.database.session import get_db
 from app.models.database.user import User
-from app.models.schemas.auth import UserCreate, UserLogin, UserResponse, TokenResponse, RefreshTokenRequest, PasswordChangeRequest
+from app.models.schemas.auth import (
+    UserCreate,
+    UserLogin,
+    UserResponse,
+    UserUpdate,
+    TokenResponse,
+    RefreshTokenRequest,
+    PasswordChangeRequest,
+)
 from app.services.auth.auth_service import (
     hash_password, verify_password,
     create_access_token, create_refresh_token,
@@ -182,6 +190,43 @@ async def logout(current_user: User = Depends(get_current_active_user), db: Asyn
 @router.get("/me", response_model=UserResponse)
 async def get_me(current_user: User = Depends(get_current_active_user)):
     """Get current user profile."""
+    return current_user
+
+
+@router.patch("/me", response_model=UserResponse)
+async def update_me(
+    payload: UserUpdate,
+    current_user: User = Depends(get_current_active_user),
+    db: AsyncSession = Depends(get_db),
+):
+    """Update current user profile details."""
+    updates = payload.model_dump(exclude_unset=True)
+
+    if "email" in updates and updates["email"] != current_user.email:
+        result = await db.execute(
+            select(User).where(User.email == updates["email"], User.id != current_user.id)
+        )
+        if result.scalar_one_or_none():
+            raise HTTPException(
+                status_code=400,
+                detail={"message": "Email already registered", "code": "EMAIL_EXISTS"},
+            )
+
+    if "username" in updates and updates["username"] != current_user.username:
+        result = await db.execute(
+            select(User).where(User.username == updates["username"], User.id != current_user.id)
+        )
+        if result.scalar_one_or_none():
+            raise HTTPException(
+                status_code=400,
+                detail={"message": "Username already taken", "code": "USERNAME_EXISTS"},
+            )
+
+    for field, value in updates.items():
+        setattr(current_user, field, value)
+
+    await db.commit()
+    await db.refresh(current_user)
     return current_user
 
 
