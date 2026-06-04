@@ -165,6 +165,7 @@ async def get_generation_result(
         assessments=course.assessment_data,
         obe_report=course.obe_data,
         analytics=course.analytics_data,
+        validation_report=getattr(course, "validation_data", None),
         file_urls={
             "syllabus_pdf": course.syllabus_pdf_url,
             "presentations": course.presentation_urls or [],
@@ -182,7 +183,7 @@ async def regenerate_component(
     db: AsyncSession = Depends(get_db),
 ):
     """Regenerate a specific component of the course."""
-    valid_components = ["curriculum", "semester", "assessments", "obe", "analytics"]
+    valid_components = ["curriculum", "semester", "assessments", "obe", "analytics", "validation"]
     if component not in valid_components:
         raise HTTPException(status_code=400, detail={"message": f"Invalid component. Valid: {valid_components}", "code": "INVALID_COMPONENT"})
 
@@ -200,12 +201,24 @@ async def regenerate_component(
         "assessments": "assessments_only",
         "obe": "obe_only",
         "analytics": "full",
+        "validation": "validation_only",
     }
 
     course_data = {
         "id": course.id, "title": course.title, "program": course.program.value,
         "department": course.department, "semester": course.semester, "credits": course.credits,
     }
+    
+    # If validating, we must pass existing data to seed the orchestrator
+    existing_state = {}
+    if component == "validation":
+        existing_state = {
+            "curriculum":    course.curriculum_data,
+            "semester_plan": course.semester_plan_data,
+            "assessments":   course.assessment_data,
+            "obe_report":    course.obe_data,
+            # Note: content is not currently persisted in Course model, so validator will skip content checks
+        }
 
     background_tasks.add_task(
         _run_generation_task,
@@ -215,6 +228,7 @@ async def regenerate_component(
         user_id=current_user.id,
         institution_id=current_user.institution_id or "default",
         mode=mode_map.get(component, "full"),
+        existing_state=existing_state,
     )
 
     return {"workflow_id": workflow_id, "component": component, "status": "regenerating"}
@@ -227,6 +241,7 @@ async def _run_generation_task(
     user_id: str,
     institution_id: str,
     mode: str,
+    existing_state: dict = None,
 ):
     """Background task that runs the full AI generation pipeline."""
     from app.services.database.session import AsyncSessionLocal
@@ -239,6 +254,7 @@ async def _run_generation_task(
                 institution_id=institution_id,
                 mode=mode,
                 workflow_id=workflow_id,
+                existing_state=existing_state,
             )
 
             # Save results to database
@@ -252,6 +268,11 @@ async def _run_generation_task(
                 course.assessment_data = result.get("assessments")
                 course.obe_data = result.get("obe_report")
                 course.analytics_data = result.get("analytics")
+                
+                # Only update validation data if it was generated
+                if result.get("validation_report"):
+                    course.validation_data = result.get("validation_report")
+                    
                 course.generation_progress = 100.0
                 course.completed_at = datetime.utcnow()
                 await db.commit()

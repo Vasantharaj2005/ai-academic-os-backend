@@ -18,5 +18,6 @@ async def list_agents(current_user: User = Depends(get_current_active_user)):
             {"name": "AssessmentAgent", "id": "ass-001", "description": "Creates assessments and question bank"},
             {"name": "OBEAgent", "id": "obe-001", "description": "CO-PO mapping and NBA/NAAC compliance"},
             {"name": "AnalyticsAgent", "id": "anl-001", "description": "Learning analytics and performance prediction"},
+            {"name": "ValidatorAgent", "id": "val-001", "description": "Quality assurance and consistency verification"},
         ]
     }

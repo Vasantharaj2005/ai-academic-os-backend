@@ -10,6 +10,7 @@ class GenerationMode(str, Enum):
     SEMESTER_ONLY = "semester_only"
     ASSESSMENTS_ONLY = "assessments_only"
     OBE_ONLY = "obe_only"
+    VALIDATION_ONLY = "validation_only"
 
 
 class GenerationRequest(BaseModel):
@@ -64,6 +65,7 @@ class GenerationResultResponse(BaseModel):
     assessments: Optional[Dict[str, Any]] = None
     obe_report: Optional[Dict[str, Any]] = None
     analytics: Optional[Dict[str, Any]] = None
+    validation_report: Optional[Dict[str, Any]] = None
     file_urls: Dict[str, Any] = Field(default_factory=dict)
     duration_seconds: float = 0.0
     errors: List[str] = Field(default_factory=list)

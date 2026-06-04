@@ -12,7 +12,7 @@ import logging
 import time
 
 from app.config import settings
-from app.api.routes import auth, courses, generation, agents, assessments, compliance, analytics, health
+from app.api.routes import auth, courses, generation, agents, assessments, compliance, analytics, health, validation
 from app.api.routes import export as export_routes
 from app.api.routes import question_paper as qp_routes
 from app.middleware.auth_middleware import AuthMiddleware
@@ -158,6 +158,7 @@ app.include_router(agents.router, prefix=f"{PREFIX}/agents", tags=["🧠 Agents"
 app.include_router(assessments.router, prefix=f"{PREFIX}/courses", tags=["📝 Assessments"])
 app.include_router(compliance.router, prefix=f"{PREFIX}/courses", tags=["✅ OBE Compliance"])
 app.include_router(analytics.router, prefix=f"{PREFIX}/courses", tags=["📊 Analytics"])
+app.include_router(validation.router, prefix=f"{PREFIX}/courses", tags=["🛡️ Validation"])
 app.include_router(export_routes.router, prefix=f"{PREFIX}/courses",        tags=["📄 PDF Export"])
 app.include_router(qp_routes.router,    prefix=f"{PREFIX}/question-papers", tags=["📝 Question Papers"])
 app.include_router(health.router,       prefix=f"{PREFIX}/health",          tags=["❤️ Health"])

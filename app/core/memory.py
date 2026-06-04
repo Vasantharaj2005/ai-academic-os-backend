@@ -152,6 +152,11 @@ class SharedMemory:
         """Returns 'redis' or 'memory' — useful for health checks."""
         return "redis" if self._use_redis else "memory"
 
+    @property
+    def client(self) -> Optional[aioredis.Redis]:
+        """Expose the underlying Redis client for direct operations."""
+        return self._client
+
 
 # Singleton instance
 shared_memory = SharedMemory()

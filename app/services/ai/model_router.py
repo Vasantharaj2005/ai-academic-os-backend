@@ -57,6 +57,13 @@ TASK_PROFILES: Dict[str, list] = {
         ("openai",    "gpt-4-turbo-preview",         0.4, 4096),
         ("anthropic", "claude-3-sonnet-20240229",    0.4, 4096),
     ],
+    # Validator - critical analysis, high reasoning
+    "validator": [
+        ("groq",      "llama-3.3-70b-versatile",   0.1, 4000),
+        ("gemini",    "gemini-2.0-flash",            0.1, 4096),
+        ("openai",    "gpt-4-turbo-preview",         0.1, 4096),
+        ("anthropic", "claude-3-opus-20240229",      0.1, 4096),
+    ],
     # Default fallback
     "default": [
         ("groq",      "llama-3.3-70b-versatile",   0.7, 2048),

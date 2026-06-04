@@ -4833,3 +4833,531 @@ Example:
 [2026-03-06 13:09:41] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
 [2026-03-06 13:10:05] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
 [2026-03-06 13:10:05] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:14:32] INFO app.main:67 - Shutting down...
+[2026-03-06 13:14:32] INFO app.main:72 - Shutdown complete
+[2026-03-06 13:14:39] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-03-06 13:14:39] INFO app.main:34 - Starting AI Academic OS backend...
+[2026-03-06 13:14:40] INFO app.services.database.session:66 - Database tables created successfully
+[2026-03-06 13:14:40] INFO app.main:49 - Database tables ready
+[2026-03-06 13:14:41] INFO app.services.ai.llm_service:49 - Groq client initialised (model: llama-3.3-70b-versatile)
+[2026-03-06 13:14:46] INFO app.services.ai.llm_service:58 - Gemini client initialised (model: gemini-2.0-flash)
+[2026-03-06 13:14:46] INFO app.services.ai.llm_service:89 - Primary LLM provider: groq
+[2026-03-06 13:14:48] INFO app.services.ai.embedding_service:35 - EmbeddingService: Gemini ready (model: text-embedding-004, dim: 768)
+[2026-03-06 13:14:53] INFO app.services.ai.rag_service:55 - RAG service initialized with Pinecone
+[2026-03-06 13:14:53] INFO app.core.memory:43 - SharedMemory connected to Redis [OK]
+[2026-03-06 13:14:53] INFO app.core.orchestrator:73 - AgentOrchestrator initialized with 6 agents
+[2026-03-06 13:14:53] INFO app.main:57 - Agent Orchestrator ready
+[2026-03-06 13:14:53] INFO app.main:62 - AI Academic OS backend started successfully
+[2026-03-06 13:14:53] INFO app.main:67 - Shutting down...
+[2026-03-06 13:14:53] INFO app.main:72 - Shutdown complete
+[2026-03-06 13:14:59] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-03-06 13:14:59] INFO app.main:34 - Starting AI Academic OS backend...
+[2026-03-06 13:14:59] INFO app.services.database.session:66 - Database tables created successfully
+[2026-03-06 13:14:59] INFO app.main:49 - Database tables ready
+[2026-03-06 13:15:01] INFO app.services.ai.llm_service:49 - Groq client initialised (model: llama-3.3-70b-versatile)
+[2026-03-06 13:15:06] INFO app.services.ai.llm_service:58 - Gemini client initialised (model: gemini-2.0-flash)
+[2026-03-06 13:15:06] INFO app.services.ai.llm_service:89 - Primary LLM provider: groq
+[2026-03-06 13:15:08] INFO app.services.ai.embedding_service:35 - EmbeddingService: Gemini ready (model: text-embedding-004, dim: 768)
+[2026-03-06 13:15:11] INFO app.services.ai.rag_service:55 - RAG service initialized with Pinecone
+[2026-03-06 13:15:11] INFO app.core.memory:43 - SharedMemory connected to Redis [OK]
+[2026-03-06 13:15:11] INFO app.core.orchestrator:75 - AgentOrchestrator initialized with 7 agents
+[2026-03-06 13:15:11] INFO app.main:57 - Agent Orchestrator ready
+[2026-03-06 13:15:11] INFO app.main:62 - AI Academic OS backend started successfully
+[2026-03-06 13:15:11] INFO app.main:67 - Shutting down...
+[2026-03-06 13:15:11] INFO app.main:72 - Shutdown complete
+[2026-03-06 13:15:19] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-03-06 13:15:19] INFO app.main:34 - Starting AI Academic OS backend...
+[2026-03-06 13:15:19] INFO app.services.database.session:66 - Database tables created successfully
+[2026-03-06 13:15:19] INFO app.main:49 - Database tables ready
+[2026-03-06 13:15:21] INFO app.services.ai.llm_service:49 - Groq client initialised (model: llama-3.3-70b-versatile)
+[2026-03-06 13:15:25] INFO app.services.ai.llm_service:58 - Gemini client initialised (model: gemini-2.0-flash)
+[2026-03-06 13:15:25] INFO app.services.ai.llm_service:89 - Primary LLM provider: groq
+[2026-03-06 13:15:27] INFO app.services.ai.embedding_service:35 - EmbeddingService: Gemini ready (model: text-embedding-004, dim: 768)
+[2026-03-06 13:15:30] INFO app.services.ai.rag_service:55 - RAG service initialized with Pinecone
+[2026-03-06 13:15:30] INFO app.core.memory:43 - SharedMemory connected to Redis [OK]
+[2026-03-06 13:15:30] INFO app.core.orchestrator:75 - AgentOrchestrator initialized with 7 agents
+[2026-03-06 13:15:30] INFO app.main:57 - Agent Orchestrator ready
+[2026-03-06 13:15:30] INFO app.main:62 - AI Academic OS backend started successfully
+[2026-03-06 13:15:32] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:15:45] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:17:36] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:17:36] WARNING app.api.routes.auth:59 - Login rate-limit check failed (Redis unavailable?); proceeding without guard.
+[2026-03-06 13:17:57] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:24:02] INFO app.main:67 - Shutting down...
+[2026-03-06 13:24:02] INFO app.main:72 - Shutdown complete
+[2026-03-06 13:24:08] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-03-06 13:24:08] INFO app.main:34 - Starting AI Academic OS backend...
+[2026-03-06 13:24:08] INFO app.services.database.session:66 - Database tables created successfully
+[2026-03-06 13:24:08] INFO app.main:49 - Database tables ready
+[2026-03-06 13:24:10] INFO app.services.ai.llm_service:49 - Groq client initialised (model: llama-3.3-70b-versatile)
+[2026-03-06 13:24:15] INFO app.services.ai.llm_service:58 - Gemini client initialised (model: gemini-2.0-flash)
+[2026-03-06 13:24:15] INFO app.services.ai.llm_service:89 - Primary LLM provider: groq
+[2026-03-06 13:24:17] INFO app.services.ai.embedding_service:35 - EmbeddingService: Gemini ready (model: text-embedding-004, dim: 768)
+[2026-03-06 13:24:21] INFO app.services.ai.rag_service:55 - RAG service initialized with Pinecone
+[2026-03-06 13:24:21] INFO app.core.memory:43 - SharedMemory connected to Redis [OK]
+[2026-03-06 13:24:21] INFO app.core.orchestrator:75 - AgentOrchestrator initialized with 7 agents
+[2026-03-06 13:24:21] INFO app.main:57 - Agent Orchestrator ready
+[2026-03-06 13:24:21] INFO app.main:62 - AI Academic OS backend started successfully
+[2026-03-06 13:24:21] INFO app.main:67 - Shutting down...
+[2026-03-06 13:24:21] INFO app.main:72 - Shutdown complete
+[2026-03-06 13:24:27] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-03-06 13:24:27] INFO app.main:34 - Starting AI Academic OS backend...
+[2026-03-06 13:24:27] INFO app.services.database.session:66 - Database tables created successfully
+[2026-03-06 13:24:27] INFO app.main:49 - Database tables ready
+[2026-03-06 13:24:28] INFO app.services.ai.llm_service:49 - Groq client initialised (model: llama-3.3-70b-versatile)
+[2026-03-06 13:24:33] INFO app.services.ai.llm_service:58 - Gemini client initialised (model: gemini-2.0-flash)
+[2026-03-06 13:24:33] INFO app.services.ai.llm_service:89 - Primary LLM provider: groq
+[2026-03-06 13:24:35] INFO app.services.ai.embedding_service:35 - EmbeddingService: Gemini ready (model: text-embedding-004, dim: 768)
+[2026-03-06 13:24:38] INFO app.services.ai.rag_service:55 - RAG service initialized with Pinecone
+[2026-03-06 13:24:38] INFO app.core.memory:43 - SharedMemory connected to Redis [OK]
+[2026-03-06 13:24:38] INFO app.core.orchestrator:75 - AgentOrchestrator initialized with 7 agents
+[2026-03-06 13:24:38] INFO app.main:57 - Agent Orchestrator ready
+[2026-03-06 13:24:38] INFO app.main:62 - AI Academic OS backend started successfully
+[2026-03-06 13:24:53] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:25:22] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:25:22] WARNING app.api.routes.auth:59 - Login rate-limit check failed (Redis unavailable?); proceeding without guard.
+[2026-03-06 13:25:55] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:26:24] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:26:49] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:29:49] INFO app.main:67 - Shutting down...
+[2026-03-06 13:29:49] INFO app.main:72 - Shutdown complete
+[2026-03-06 13:29:54] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-03-06 13:29:54] INFO app.main:34 - Starting AI Academic OS backend...
+[2026-03-06 13:29:54] INFO app.services.database.session:66 - Database tables created successfully
+[2026-03-06 13:29:54] INFO app.main:49 - Database tables ready
+[2026-03-06 13:29:56] INFO app.services.ai.llm_service:49 - Groq client initialised (model: llama-3.3-70b-versatile)
+[2026-03-06 13:30:00] INFO app.services.ai.llm_service:58 - Gemini client initialised (model: gemini-2.0-flash)
+[2026-03-06 13:30:00] INFO app.services.ai.llm_service:89 - Primary LLM provider: groq
+[2026-03-06 13:30:02] INFO app.services.ai.embedding_service:35 - EmbeddingService: Gemini ready (model: text-embedding-004, dim: 768)
+[2026-03-06 13:30:06] INFO app.services.ai.rag_service:55 - RAG service initialized with Pinecone
+[2026-03-06 13:30:06] INFO app.core.memory:43 - SharedMemory connected to Redis [OK]
+[2026-03-06 13:30:06] INFO app.core.orchestrator:75 - AgentOrchestrator initialized with 7 agents
+[2026-03-06 13:30:06] INFO app.main:57 - Agent Orchestrator ready
+[2026-03-06 13:30:06] INFO app.main:62 - AI Academic OS backend started successfully
+[2026-03-06 13:30:06] INFO app.main:67 - Shutting down...
+[2026-03-06 13:30:06] INFO app.main:72 - Shutdown complete
+[2026-03-06 13:30:11] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-03-06 13:30:11] INFO app.main:34 - Starting AI Academic OS backend...
+[2026-03-06 13:30:11] INFO app.services.database.session:66 - Database tables created successfully
+[2026-03-06 13:30:11] INFO app.main:49 - Database tables ready
+[2026-03-06 13:30:13] INFO app.services.ai.llm_service:49 - Groq client initialised (model: llama-3.3-70b-versatile)
+[2026-03-06 13:30:17] INFO app.services.ai.llm_service:58 - Gemini client initialised (model: gemini-2.0-flash)
+[2026-03-06 13:30:17] INFO app.services.ai.llm_service:89 - Primary LLM provider: groq
+[2026-03-06 13:30:19] INFO app.services.ai.embedding_service:35 - EmbeddingService: Gemini ready (model: text-embedding-004, dim: 768)
+[2026-03-06 13:30:23] INFO app.services.ai.rag_service:55 - RAG service initialized with Pinecone
+[2026-03-06 13:30:23] INFO app.core.memory:43 - SharedMemory connected to Redis [OK]
+[2026-03-06 13:30:23] INFO app.core.orchestrator:75 - AgentOrchestrator initialized with 7 agents
+[2026-03-06 13:30:23] INFO app.main:57 - Agent Orchestrator ready
+[2026-03-06 13:30:23] INFO app.main:62 - AI Academic OS backend started successfully
+[2026-03-06 13:30:31] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:30:42] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:32:51] INFO app.main:67 - Shutting down...
+[2026-03-06 13:32:51] INFO app.main:72 - Shutdown complete
+[2026-03-06 13:32:56] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-03-06 13:32:56] INFO app.main:34 - Starting AI Academic OS backend...
+[2026-03-06 13:32:56] INFO app.services.database.session:66 - Database tables created successfully
+[2026-03-06 13:32:56] INFO app.main:49 - Database tables ready
+[2026-03-06 13:32:58] INFO app.services.ai.llm_service:49 - Groq client initialised (model: llama-3.3-70b-versatile)
+[2026-03-06 13:33:02] INFO app.services.ai.llm_service:58 - Gemini client initialised (model: gemini-2.0-flash)
+[2026-03-06 13:33:02] INFO app.services.ai.llm_service:89 - Primary LLM provider: groq
+[2026-03-06 13:33:05] INFO app.services.ai.embedding_service:35 - EmbeddingService: Gemini ready (model: text-embedding-004, dim: 768)
+[2026-03-06 13:33:09] INFO app.services.ai.rag_service:55 - RAG service initialized with Pinecone
+[2026-03-06 13:33:09] INFO app.core.memory:43 - SharedMemory connected to Redis [OK]
+[2026-03-06 13:33:09] INFO app.core.orchestrator:75 - AgentOrchestrator initialized with 7 agents
+[2026-03-06 13:33:09] INFO app.main:57 - Agent Orchestrator ready
+[2026-03-06 13:33:09] INFO app.main:62 - AI Academic OS backend started successfully
+[2026-03-06 13:33:09] INFO app.main:67 - Shutting down...
+[2026-03-06 13:33:09] INFO app.main:72 - Shutdown complete
+[2026-03-06 13:33:14] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-03-06 13:33:14] INFO app.main:34 - Starting AI Academic OS backend...
+[2026-03-06 13:33:14] INFO app.services.database.session:66 - Database tables created successfully
+[2026-03-06 13:33:14] INFO app.main:49 - Database tables ready
+[2026-03-06 13:33:16] INFO app.services.ai.llm_service:49 - Groq client initialised (model: llama-3.3-70b-versatile)
+[2026-03-06 13:33:20] INFO app.services.ai.llm_service:58 - Gemini client initialised (model: gemini-2.0-flash)
+[2026-03-06 13:33:20] INFO app.services.ai.llm_service:89 - Primary LLM provider: groq
+[2026-03-06 13:33:22] INFO app.services.ai.embedding_service:35 - EmbeddingService: Gemini ready (model: text-embedding-004, dim: 768)
+[2026-03-06 13:33:25] INFO app.services.ai.rag_service:55 - RAG service initialized with Pinecone
+[2026-03-06 13:33:25] INFO app.core.memory:43 - SharedMemory connected to Redis [OK]
+[2026-03-06 13:33:25] INFO app.core.orchestrator:75 - AgentOrchestrator initialized with 7 agents
+[2026-03-06 13:33:25] INFO app.main:57 - Agent Orchestrator ready
+[2026-03-06 13:33:25] INFO app.main:62 - AI Academic OS backend started successfully
+[2026-03-06 13:34:04] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:37:07] INFO app.main:67 - Shutting down...
+[2026-03-06 13:37:07] INFO app.main:72 - Shutdown complete
+[2026-03-06 13:37:11] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-03-06 13:37:12] INFO app.main:34 - Starting AI Academic OS backend...
+[2026-03-06 13:37:12] INFO app.services.database.session:66 - Database tables created successfully
+[2026-03-06 13:37:12] INFO app.main:49 - Database tables ready
+[2026-03-06 13:37:13] INFO app.services.ai.llm_service:49 - Groq client initialised (model: llama-3.3-70b-versatile)
+[2026-03-06 13:37:17] INFO app.services.ai.llm_service:58 - Gemini client initialised (model: gemini-2.0-flash)
+[2026-03-06 13:37:17] INFO app.services.ai.llm_service:89 - Primary LLM provider: groq
+[2026-03-06 13:37:19] INFO app.services.ai.embedding_service:35 - EmbeddingService: Gemini ready (model: text-embedding-004, dim: 768)
+[2026-03-06 13:37:23] INFO app.services.ai.rag_service:55 - RAG service initialized with Pinecone
+[2026-03-06 13:37:23] INFO app.core.memory:43 - SharedMemory connected to Redis [OK]
+[2026-03-06 13:37:23] INFO app.core.orchestrator:75 - AgentOrchestrator initialized with 7 agents
+[2026-03-06 13:37:23] INFO app.main:57 - Agent Orchestrator ready
+[2026-03-06 13:37:23] INFO app.main:62 - AI Academic OS backend started successfully
+[2026-03-06 13:37:44] INFO app.main:67 - Shutting down...
+[2026-03-06 13:37:44] INFO app.main:72 - Shutdown complete
+[2026-03-06 13:37:50] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-03-06 13:37:50] INFO app.main:34 - Starting AI Academic OS backend...
+[2026-03-06 13:37:50] INFO app.services.database.session:66 - Database tables created successfully
+[2026-03-06 13:37:50] INFO app.main:49 - Database tables ready
+[2026-03-06 13:37:52] INFO app.services.ai.llm_service:49 - Groq client initialised (model: llama-3.3-70b-versatile)
+[2026-03-06 13:37:56] INFO app.services.ai.llm_service:58 - Gemini client initialised (model: gemini-2.0-flash)
+[2026-03-06 13:37:56] INFO app.services.ai.llm_service:89 - Primary LLM provider: groq
+[2026-03-06 13:37:58] INFO app.services.ai.embedding_service:35 - EmbeddingService: Gemini ready (model: text-embedding-004, dim: 768)
+[2026-03-06 13:38:01] INFO app.services.ai.rag_service:55 - RAG service initialized with Pinecone
+[2026-03-06 13:38:02] INFO app.core.memory:43 - SharedMemory connected to Redis [OK]
+[2026-03-06 13:38:02] INFO app.core.orchestrator:75 - AgentOrchestrator initialized with 7 agents
+[2026-03-06 13:38:02] INFO app.main:57 - Agent Orchestrator ready
+[2026-03-06 13:38:02] INFO app.main:62 - AI Academic OS backend started successfully
+[2026-03-06 13:38:02] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:38:26] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:40:46] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:40:58] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:40:58] INFO app.core.orchestrator:96 - Starting workflow wf-regen-cfd08aaddfd7 for course: Introduction to Python with AI
+[2026-03-06 13:40:58] INFO httpx:1025 - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:batchEmbedContents "HTTP/1.1 404 Not Found"
+[2026-03-06 13:40:58] ERROR app.services.ai.embedding_service:103 - Gemini embed_content failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/text-embedding-004 is not found for API version v1beta, or is not supported for embedContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+[2026-03-06 13:41:03] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-03-06 13:41:03] INFO app.api.routes.generation:280 - Generation task completed: workflow=wf-regen-cfd08aaddfd7
+[2026-03-06 13:41:28] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:41:38] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:41:38] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:41:38] WARNING app.services.auth.auth_service:57 - Token decode failed: Signature has expired.
+[2026-03-06 13:41:38] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:41:38] WARNING app.services.auth.auth_service:57 - Token decode failed: Signature has expired.
+[2026-03-06 13:41:38] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:41:38] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:41:38] WARNING app.services.auth.auth_service:57 - Token decode failed: Signature has expired.
+[2026-03-06 13:41:38] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:41:38] WARNING app.services.auth.auth_service:57 - Token decode failed: Signature has expired.
+[2026-03-06 13:41:38] WARNING app.services.auth.auth_service:57 - Token decode failed: Signature has expired.
+[2026-03-06 13:41:38] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:41:38] WARNING app.services.auth.auth_service:57 - Token decode failed: Signature has expired.
+[2026-03-06 13:42:17] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:42:17] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:42:17] WARNING app.api.routes.auth:59 - Login rate-limit check failed (Redis unavailable?); proceeding without guard.
+[2026-03-06 13:42:18] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:42:18] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:42:58] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:42:58] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:42:58] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:42:58] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:43:51] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:43:51] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:43:51] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:43:51] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:44:05] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:44:05] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:44:05] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:44:05] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:44:20] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:44:20] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:44:20] INFO app.api.routes.generation:85 - Generation started: workflow=wf-f3100588cc43, course=9804eec4-8579-4c41-8314-2454699d85c4
+[2026-03-06 13:44:20] INFO app.core.orchestrator:96 - Starting workflow wf-f3100588cc43 for course: Machine Learning
+[2026-03-06 13:44:20] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:44:20] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:44:20] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:44:20] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:44:20] INFO httpx:1025 - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:batchEmbedContents "HTTP/1.1 404 Not Found"
+[2026-03-06 13:44:20] ERROR app.services.ai.embedding_service:103 - Gemini embed_content failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/text-embedding-004 is not found for API version v1beta, or is not supported for embedContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+[2026-03-06 13:44:23] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:44:25] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-03-06 13:44:25] INFO httpx:1025 - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:batchEmbedContents "HTTP/1.1 404 Not Found"
+[2026-03-06 13:44:25] ERROR app.services.ai.embedding_service:103 - Gemini embed_content failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/text-embedding-004 is not found for API version v1beta, or is not supported for embedContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+[2026-03-06 13:44:26] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:44:28] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-03-06 13:44:29] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:44:30] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-03-06 13:44:30] INFO httpx:1025 - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:batchEmbedContents "HTTP/1.1 404 Not Found"
+[2026-03-06 13:44:30] ERROR app.services.ai.embedding_service:103 - Gemini embed_content failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/text-embedding-004 is not found for API version v1beta, or is not supported for embedContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+[2026-03-06 13:44:32] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:44:33] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-03-06 13:44:33] INFO httpx:1025 - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:batchEmbedContents "HTTP/1.1 404 Not Found"
+[2026-03-06 13:44:33] ERROR app.services.ai.embedding_service:103 - Gemini embed_content failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/text-embedding-004 is not found for API version v1beta, or is not supported for embedContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+[2026-03-06 13:44:35] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:44:38] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:44:39] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-03-06 13:44:39] INFO httpx:1025 - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:batchEmbedContents "HTTP/1.1 404 Not Found"
+[2026-03-06 13:44:39] ERROR app.services.ai.embedding_service:103 - Gemini embed_content failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/text-embedding-004 is not found for API version v1beta, or is not supported for embedContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+[2026-03-06 13:44:41] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:44:43] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-03-06 13:44:43] INFO httpx:1025 - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:batchEmbedContents "HTTP/1.1 404 Not Found"
+[2026-03-06 13:44:44] ERROR app.services.ai.embedding_service:103 - Gemini embed_content failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/text-embedding-004 is not found for API version v1beta, or is not supported for embedContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+[2026-03-06 13:44:44] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:44:46] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-03-06 13:44:46] INFO httpx:1025 - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:batchEmbedContents "HTTP/1.1 404 Not Found"
+[2026-03-06 13:44:46] ERROR app.services.ai.embedding_service:103 - Gemini embed_content failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/text-embedding-004 is not found for API version v1beta, or is not supported for embedContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+[2026-03-06 13:44:47] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:44:50] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:44:51] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-03-06 13:44:53] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:44:54] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-03-06 13:44:54] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+[2026-03-06 13:44:54] INFO groq._base_client:1603 - Retrying request to /openai/v1/chat/completions in 2.000000 seconds
+[2026-03-06 13:44:56] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:44:58] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-03-06 13:44:58] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+[2026-03-06 13:44:58] INFO groq._base_client:1603 - Retrying request to /openai/v1/chat/completions in 2.000000 seconds
+[2026-03-06 13:44:59] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:45:02] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:45:03] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-03-06 13:45:03] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+[2026-03-06 13:45:03] INFO groq._base_client:1603 - Retrying request to /openai/v1/chat/completions in 3.000000 seconds
+[2026-03-06 13:45:05] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:45:08] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:45:10] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-03-06 13:45:10] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+[2026-03-06 13:45:10] INFO groq._base_client:1603 - Retrying request to /openai/v1/chat/completions in 2.000000 seconds
+[2026-03-06 13:45:11] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:45:14] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-03-06 13:45:14] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+[2026-03-06 13:45:14] INFO groq._base_client:1603 - Retrying request to /openai/v1/chat/completions in 2.000000 seconds
+[2026-03-06 13:45:14] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:45:17] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:45:18] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-03-06 13:45:18] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+[2026-03-06 13:45:18] INFO groq._base_client:1603 - Retrying request to /openai/v1/chat/completions in 2.000000 seconds
+[2026-03-06 13:45:20] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:45:23] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:45:26] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-03-06 13:45:26] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+[2026-03-06 13:45:26] INFO groq._base_client:1603 - Retrying request to /openai/v1/chat/completions in 4.000000 seconds
+[2026-03-06 13:45:26] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:45:29] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:45:32] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:45:33] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-03-06 13:45:33] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+[2026-03-06 13:45:33] INFO groq._base_client:1603 - Retrying request to /openai/v1/chat/completions in 3.000000 seconds
+[2026-03-06 13:45:35] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:45:37] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-03-06 13:45:37] INFO app.agents.validator_agent:35 - ValidatorAgent starting for workflow wf-f3100588cc43
+[2026-03-06 13:45:37] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+[2026-03-06 13:45:37] INFO groq._base_client:1603 - Retrying request to /openai/v1/chat/completions in 15.000000 seconds
+[2026-03-06 13:45:38] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:45:41] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:45:44] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:45:47] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:45:50] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:45:53] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:45:54] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-03-06 13:45:54] INFO app.core.orchestrator:218 - Workflow wf-f3100588cc43 completed in 93.5s
+[2026-03-06 13:45:54] INFO app.api.routes.generation:280 - Generation task completed: workflow=wf-f3100588cc43
+[2026-03-06 13:45:56] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:45:56] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:45:56] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:45:56] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:46:55] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:47:25] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:50:05] INFO app.main:67 - Shutting down...
+[2026-03-06 13:50:05] INFO app.main:72 - Shutdown complete
+[2026-03-06 13:50:23] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-03-06 13:50:23] INFO app.main:34 - Starting AI Academic OS backend...
+[2026-03-06 13:50:24] INFO app.services.database.session:66 - Database tables created successfully
+[2026-03-06 13:50:24] INFO app.main:49 - Database tables ready
+[2026-03-06 13:50:25] INFO app.services.ai.llm_service:49 - Groq client initialised (model: llama-3.3-70b-versatile)
+[2026-03-06 13:50:29] INFO app.services.ai.llm_service:58 - Gemini client initialised (model: gemini-2.0-flash)
+[2026-03-06 13:50:29] INFO app.services.ai.llm_service:89 - Primary LLM provider: groq
+[2026-03-06 13:50:32] INFO app.services.ai.embedding_service:35 - EmbeddingService: Gemini ready (model: text-embedding-004, dim: 768)
+[2026-03-06 13:50:35] INFO app.services.ai.rag_service:55 - RAG service initialized with Pinecone
+[2026-03-06 13:50:35] INFO app.core.memory:43 - SharedMemory connected to Redis [OK]
+[2026-03-06 13:50:35] INFO app.core.orchestrator:75 - AgentOrchestrator initialized with 7 agents
+[2026-03-06 13:50:35] INFO app.main:57 - Agent Orchestrator ready
+[2026-03-06 13:50:35] INFO app.main:62 - AI Academic OS backend started successfully
+[2026-03-06 13:50:35] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'SharedMemory' object has no attribute 'client'
+[2026-03-06 13:53:14] INFO app.main:67 - Shutting down...
+[2026-03-06 13:53:14] INFO app.main:72 - Shutdown complete
+[2026-03-06 13:53:18] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-03-06 13:53:18] INFO app.main:34 - Starting AI Academic OS backend...
+[2026-03-06 13:53:19] INFO app.services.database.session:66 - Database tables created successfully
+[2026-03-06 13:53:19] INFO app.main:49 - Database tables ready
+[2026-03-06 13:53:20] INFO app.services.ai.llm_service:49 - Groq client initialised (model: llama-3.3-70b-versatile)
+[2026-03-06 13:53:25] INFO app.services.ai.llm_service:58 - Gemini client initialised (model: gemini-2.0-flash)
+[2026-03-06 13:53:25] INFO app.services.ai.llm_service:89 - Primary LLM provider: groq
+[2026-03-06 13:53:27] INFO app.services.ai.embedding_service:35 - EmbeddingService: Gemini ready (model: text-embedding-004, dim: 768)
+[2026-03-06 13:53:31] INFO app.services.ai.rag_service:55 - RAG service initialized with Pinecone
+[2026-03-06 13:53:31] INFO app.core.memory:43 - SharedMemory connected to Redis [OK]
+[2026-03-06 13:53:31] INFO app.core.orchestrator:75 - AgentOrchestrator initialized with 7 agents
+[2026-03-06 13:53:31] INFO app.main:57 - Agent Orchestrator ready
+[2026-03-06 13:53:31] INFO app.main:62 - AI Academic OS backend started successfully
+[2026-03-06 14:20:34] WARNING app.services.auth.auth_service:57 - Token decode failed: Signature has expired.
+[2026-03-06 14:20:34] WARNING app.services.auth.auth_service:57 - Token decode failed: Signature has expired.
+[2026-03-06 14:20:34] WARNING app.services.auth.auth_service:57 - Token decode failed: Signature has expired.
+[2026-03-06 14:20:34] WARNING app.services.auth.auth_service:57 - Token decode failed: Signature has expired.
+[2026-03-06 14:20:34] WARNING app.services.auth.auth_service:57 - Token decode failed: Signature has expired.
+[2026-03-06 14:20:34] WARNING app.services.auth.auth_service:57 - Token decode failed: Signature has expired.
+[2026-03-06 15:27:55] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-03-06 15:27:55] INFO app.main:34 - Starting AI Academic OS backend...
+[2026-03-06 15:27:55] INFO app.services.database.session:66 - Database tables created successfully
+[2026-03-06 15:27:55] INFO app.main:49 - Database tables ready
+[2026-03-06 15:27:57] INFO app.services.ai.llm_service:49 - Groq client initialised (model: llama-3.3-70b-versatile)
+[2026-03-06 15:28:02] INFO app.services.ai.llm_service:58 - Gemini client initialised (model: gemini-2.0-flash)
+[2026-03-06 15:28:02] INFO app.services.ai.llm_service:89 - Primary LLM provider: groq
+[2026-03-06 15:28:05] INFO app.services.ai.embedding_service:35 - EmbeddingService: Gemini ready (model: text-embedding-004, dim: 768)
+[2026-03-06 15:28:10] INFO app.services.ai.rag_service:55 - RAG service initialized with Pinecone
+[2026-03-06 15:28:10] INFO app.core.memory:43 - SharedMemory connected to Redis [OK]
+[2026-03-06 15:28:10] INFO app.core.orchestrator:75 - AgentOrchestrator initialized with 7 agents
+[2026-03-06 15:28:10] INFO app.main:57 - Agent Orchestrator ready
+[2026-03-06 15:28:10] INFO app.main:62 - AI Academic OS backend started successfully
+[2026-03-06 15:29:11] ERROR asyncio:1785 - Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Users\vasan\AppData\Roaming\uv\python\cpython-3.11.13-windows-x86_64-none\Lib\asyncio\events.py", line 84, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\vasan\AppData\Roaming\uv\python\cpython-3.11.13-windows-x86_64-none\Lib\asyncio\proactor_events.py", line 165, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+[2026-03-06 15:53:38] INFO app.api.routes.generation:85 - Generation started: workflow=wf-191028e7ee8d, course=f85f5304-140e-45ce-9355-e94aa12a984c
+[2026-03-06 15:53:38] INFO app.core.orchestrator:96 - Starting workflow wf-191028e7ee8d for course: python for llm
+[2026-03-06 15:53:38] INFO httpx:1025 - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:batchEmbedContents "HTTP/1.1 404 Not Found"
+[2026-03-06 15:53:38] ERROR app.services.ai.embedding_service:103 - Gemini embed_content failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/text-embedding-004 is not found for API version v1beta, or is not supported for embedContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+[2026-03-06 15:53:43] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-03-06 15:53:44] INFO httpx:1025 - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:batchEmbedContents "HTTP/1.1 404 Not Found"
+[2026-03-06 15:53:44] ERROR app.services.ai.embedding_service:103 - Gemini embed_content failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/text-embedding-004 is not found for API version v1beta, or is not supported for embedContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+[2026-03-06 15:53:46] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-03-06 15:53:47] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-03-06 15:53:47] INFO httpx:1025 - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:batchEmbedContents "HTTP/1.1 404 Not Found"
+[2026-03-06 15:53:47] ERROR app.services.ai.embedding_service:103 - Gemini embed_content failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/text-embedding-004 is not found for API version v1beta, or is not supported for embedContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+[2026-03-06 15:53:53] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-03-06 15:53:53] INFO httpx:1025 - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:batchEmbedContents "HTTP/1.1 404 Not Found"
+[2026-03-06 15:53:53] ERROR app.services.ai.embedding_service:103 - Gemini embed_content failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/text-embedding-004 is not found for API version v1beta, or is not supported for embedContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+[2026-03-06 15:53:58] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-03-06 15:53:59] INFO httpx:1025 - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:batchEmbedContents "HTTP/1.1 404 Not Found"
+[2026-03-06 15:53:59] ERROR app.services.ai.embedding_service:103 - Gemini embed_content failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/text-embedding-004 is not found for API version v1beta, or is not supported for embedContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+[2026-03-06 15:54:04] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-03-06 15:54:04] INFO httpx:1025 - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:batchEmbedContents "HTTP/1.1 404 Not Found"
+[2026-03-06 15:54:04] ERROR app.services.ai.embedding_service:103 - Gemini embed_content failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/text-embedding-004 is not found for API version v1beta, or is not supported for embedContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+[2026-03-06 15:54:07] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-03-06 15:54:07] INFO httpx:1025 - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:batchEmbedContents "HTTP/1.1 404 Not Found"
+[2026-03-06 15:54:07] ERROR app.services.ai.embedding_service:103 - Gemini embed_content failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/text-embedding-004 is not found for API version v1beta, or is not supported for embedContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+[2026-03-06 15:54:12] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-03-06 15:54:14] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-03-06 15:54:16] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-03-06 15:54:16] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+[2026-03-06 15:54:16] INFO groq._base_client:1603 - Retrying request to /openai/v1/chat/completions in 1.000000 seconds
+[2026-03-06 15:54:20] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-03-06 15:54:20] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+[2026-03-06 15:54:20] INFO groq._base_client:1603 - Retrying request to /openai/v1/chat/completions in 3.000000 seconds
+[2026-03-06 15:54:25] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-03-06 15:54:25] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+[2026-03-06 15:54:25] INFO groq._base_client:1603 - Retrying request to /openai/v1/chat/completions in 3.000000 seconds
+[2026-03-06 15:54:29] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-03-06 15:54:30] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+[2026-03-06 15:54:30] INFO groq._base_client:1603 - Retrying request to /openai/v1/chat/completions in 3.000000 seconds
+[2026-03-06 15:54:34] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-03-06 15:54:34] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+[2026-03-06 15:54:34] INFO groq._base_client:1603 - Retrying request to /openai/v1/chat/completions in 2.000000 seconds
+[2026-03-06 15:54:41] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-03-06 15:54:41] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+[2026-03-06 15:54:41] INFO groq._base_client:1603 - Retrying request to /openai/v1/chat/completions in 5.000000 seconds
+[2026-03-06 15:54:50] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-03-06 15:54:50] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+[2026-03-06 15:54:50] INFO groq._base_client:1603 - Retrying request to /openai/v1/chat/completions in 3.000000 seconds
+[2026-03-06 15:54:54] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-03-06 15:54:54] INFO app.agents.validator_agent:35 - ValidatorAgent starting for workflow wf-191028e7ee8d
+[2026-03-06 15:54:54] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+[2026-03-06 15:54:54] INFO groq._base_client:1603 - Retrying request to /openai/v1/chat/completions in 16.000000 seconds
+[2026-03-06 15:55:12] INFO httpx:1740 - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-03-06 15:55:12] INFO app.core.orchestrator:218 - Workflow wf-191028e7ee8d completed in 94.7s
+[2026-03-06 15:55:12] INFO app.api.routes.generation:280 - Generation task completed: workflow=wf-191028e7ee8d
+[2026-03-06 15:55:57] INFO app.services.storage.pdf_generator:225 - Syllabus PDF generated: generated_pdfs\syllabus_f85f5304-140e-45ce-9355-e94aa12a984c_20260306_155557.pdf
+[2026-05-14 19:53:21] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-05-14 19:53:21] INFO app.main:34 - Starting AI Academic OS backend...
+[2026-05-14 19:53:21] INFO app.services.database.session:66 - Database tables created successfully
+[2026-05-14 19:53:21] INFO app.main:49 - Database tables ready
+[2026-05-14 19:53:23] INFO app.services.ai.llm_service:49 - Groq client initialised (model: llama-3.3-70b-versatile)
+[2026-05-14 19:53:29] INFO app.services.ai.llm_service:58 - Gemini client initialised (model: gemini-2.0-flash)
+[2026-05-14 19:53:29] INFO app.services.ai.llm_service:89 - Primary LLM provider: groq
+[2026-05-14 19:53:31] INFO app.services.ai.embedding_service:35 - EmbeddingService: Gemini ready (model: text-embedding-004, dim: 768)
+[2026-05-14 19:53:36] INFO app.services.ai.rag_service:55 - RAG service initialized with Pinecone
+[2026-05-14 19:53:38] WARNING app.core.memory:46 - Redis unavailable (Timeout connecting to server). SharedMemory falling back to in-process dict — workflow state will not persist across restarts. Start Redis to enable persistent shared memory.
+[2026-05-14 19:53:38] INFO app.core.orchestrator:75 - AgentOrchestrator initialized with 7 agents
+[2026-05-14 19:53:38] INFO app.main:57 - Agent Orchestrator ready
+[2026-05-14 19:53:38] INFO app.main:62 - AI Academic OS backend started successfully
+[2026-05-14 19:53:45] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 19:53:55] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 19:54:01] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 19:54:03] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 19:54:42] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 19:56:39] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 19:56:39] WARNING app.services.auth.auth_service:57 - Token decode failed: Signature has expired.
+[2026-05-14 19:56:39] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 19:56:39] WARNING app.services.auth.auth_service:57 - Token decode failed: Signature has expired.
+[2026-05-14 19:57:57] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 19:57:57] WARNING app.api.routes.auth:59 - Login rate-limit check failed (Redis unavailable?); proceeding without guard.
+[2026-05-14 19:59:30] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 19:59:30] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 19:59:39] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 19:59:39] INFO app.api.routes.auth:100 - New user registered: vasanthraj679@gmail.com
+[2026-05-14 19:59:56] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 19:59:56] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 19:59:56] WARNING app.api.routes.auth:59 - Login rate-limit check failed (Redis unavailable?); proceeding without guard.
+[2026-05-14 19:59:57] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 20:00:27] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 20:00:27] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 20:00:27] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 20:00:27] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 20:00:27] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 20:00:27] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 20:00:27] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 20:00:27] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 20:00:46] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 20:00:46] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 20:00:46] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 20:00:46] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 20:00:46] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 20:00:46] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 20:00:46] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 20:00:46] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 20:01:20] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 20:01:20] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 20:01:20] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 20:01:20] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 20:01:40] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 20:01:40] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 20:01:40] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 20:01:40] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 20:02:01] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 20:02:01] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 20:02:01] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 20:02:01] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 20:02:20] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 20:02:20] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 20:02:20] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 20:02:20] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 20:02:39] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 20:02:39] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 20:02:39] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-05-14 20:02:39] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-06-04 12:23:04] INFO app.utils.logger:95 - Logging configured at level INFO
+[2026-06-04 12:23:04] INFO app.main:34 - Starting AI Academic OS backend...
+[2026-06-04 12:23:04] INFO app.services.database.session:66 - Database tables created successfully
+[2026-06-04 12:23:04] INFO app.main:49 - Database tables ready
+[2026-06-04 12:23:05] INFO app.services.ai.llm_service:49 - Groq client initialised (model: llama-3.3-70b-versatile)
+[2026-06-04 12:23:07] INFO app.services.ai.llm_service:58 - Gemini client initialised (model: gemini-2.0-flash)
+[2026-06-04 12:23:07] INFO app.services.ai.llm_service:89 - Primary LLM provider: groq
+[2026-06-04 12:23:08] INFO app.services.ai.embedding_service:35 - EmbeddingService: Gemini ready (model: text-embedding-004, dim: 768)
+[2026-06-04 12:23:16] INFO app.services.ai.rag_service:55 - RAG service initialized with Pinecone
+[2026-06-04 12:23:18] WARNING app.core.memory:46 - Redis unavailable (Timeout connecting to server). SharedMemory falling back to in-process dict — workflow state will not persist across restarts. Start Redis to enable persistent shared memory.
+[2026-06-04 12:23:18] INFO app.core.orchestrator:75 - AgentOrchestrator initialized with 7 agents
+[2026-06-04 12:23:18] INFO app.main:57 - Agent Orchestrator ready
+[2026-06-04 12:23:18] INFO app.main:62 - AI Academic OS backend started successfully
+[2026-06-04 12:23:37] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-06-04 12:23:50] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-06-04 12:23:50] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-06-04 12:24:25] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-06-04 12:25:40] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-06-04 12:25:40] WARNING app.api.routes.auth:59 - Login rate-limit check failed (Redis unavailable?); proceeding without guard.
+[2026-06-04 12:25:58] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-06-04 12:25:58] WARNING app.api.routes.auth:59 - Login rate-limit check failed (Redis unavailable?); proceeding without guard.
+[2026-06-04 12:27:09] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-06-04 12:27:23] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-06-04 12:27:23] WARNING app.api.routes.auth:59 - Login rate-limit check failed (Redis unavailable?); proceeding without guard.
+[2026-06-04 12:27:34] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-06-04 12:27:34] WARNING app.api.routes.auth:59 - Login rate-limit check failed (Redis unavailable?); proceeding without guard.
+[2026-06-04 12:27:44] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-06-04 12:27:44] WARNING app.api.routes.auth:59 - Login rate-limit check failed (Redis unavailable?); proceeding without guard.
+[2026-06-04 12:27:55] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'
+[2026-06-04 12:27:55] WARNING app.api.routes.auth:59 - Login rate-limit check failed (Redis unavailable?); proceeding without guard.
+[2026-06-04 12:28:14] WARNING app.middleware.rate_limit:63 - Rate limiter Redis unavailable, using in-memory fallback: 'NoneType' object has no attribute 'incr'

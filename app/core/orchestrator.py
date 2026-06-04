@@ -16,6 +16,7 @@ from app.agents.content_agent import ContentAgent
 from app.agents.assessment_agent import AssessmentAgent
 from app.agents.obe_agent import OBEAgent
 from app.agents.analytics_agent import AnalyticsAgent
+from app.agents.validator_agent import ValidatorAgent
 from app.core.memory import shared_memory
 from app.services.ai.llm_service import llm_service
 from app.services.ai.rag_service import rag_service
@@ -68,6 +69,7 @@ class AgentOrchestrator:
             "assessment": AssessmentAgent(**agent_kwargs),
             "obe": OBEAgent(**agent_kwargs),
             "analytics": AnalyticsAgent(**agent_kwargs),
+            "validator": ValidatorAgent(**agent_kwargs),
         }
         self._initialized = True
         logger.info(f"AgentOrchestrator initialized with {len(self._agents)} agents")
@@ -79,6 +81,7 @@ class AgentOrchestrator:
         institution_id: str,
         mode: str = "full",
         workflow_id: Optional[str] = None,
+        existing_state: Optional[Dict[str, Any]] = None,
     ) -> Dict[str, Any]:
         """
         Run the full course generation pipeline.
@@ -112,6 +115,13 @@ class AgentOrchestrator:
             input_data=course_data,
         )
 
+        # Pre-seed shared memory with existing data if provided (for partial regeneration)
+        if existing_state:
+            logger.info(f"Seeding workflow {workflow_id} with existing state: {list(existing_state.keys())}")
+            for key, value in existing_state.items():
+                if value:
+                    await shared_memory.set(f"{workflow_id}:{key}", value)
+
         results: Dict[str, AgentResult] = {}
         errors: List[str] = []
 
@@ -126,6 +136,10 @@ class AgentOrchestrator:
             if not curr_result.success:
                 errors.append(f"CurriculumAgent: {curr_result.error}")
 
+            # If we are just validating, we assume curriculum is already in memory (seeded)
+            if mode == "validation_only":
+                pass # Skip to validation phase
+            
             if mode == "curriculum_only":
                 return self._build_result(workflow_id, results, errors, start_time)
 
@@ -133,49 +147,61 @@ class AgentOrchestrator:
             await self._update_agent_status(workflow_id, "SemesterAgent", "running")
             await self._update_agent_status(workflow_id, "ContentAgent", "running")
 
-            sem_task = asyncio.create_task(self._run_agent("semester", context))
-            cnt_task = asyncio.create_task(self._run_agent("content", context))
-            sem_result, cnt_result = await asyncio.gather(sem_task, cnt_task, return_exceptions=True)
+            if mode != "validation_only":
+                sem_task = asyncio.create_task(self._run_agent("semester", context))
+                cnt_task = asyncio.create_task(self._run_agent("content", context))
+                sem_result, cnt_result = await asyncio.gather(sem_task, cnt_task, return_exceptions=True)
 
-            if isinstance(sem_result, Exception):
-                sem_result = self._error_result("SemesterAgent", str(sem_result))
-                errors.append(str(sem_result.error))
-            if isinstance(cnt_result, Exception):
-                cnt_result = self._error_result("ContentAgent", str(cnt_result))
-                errors.append(str(cnt_result.error))
+                if isinstance(sem_result, Exception):
+                    sem_result = self._error_result("SemesterAgent", str(sem_result))
+                    errors.append(str(sem_result.error))
+                if isinstance(cnt_result, Exception):
+                    cnt_result = self._error_result("ContentAgent", str(cnt_result))
+                    errors.append(str(cnt_result.error))
 
-            results["semester"] = sem_result
-            results["content"] = cnt_result
-            await self._update_agent_status(workflow_id, "SemesterAgent", "completed" if sem_result.success else "failed")
-            await self._update_agent_status(workflow_id, "ContentAgent", "completed" if cnt_result.success else "failed")
-            await self._update_progress(workflow_id, 50)
+                results["semester"] = sem_result
+                results["content"] = cnt_result
+                await self._update_agent_status(workflow_id, "SemesterAgent", "completed" if sem_result.success else "failed")
+                await self._update_agent_status(workflow_id, "ContentAgent", "completed" if cnt_result.success else "failed")
+                await self._update_progress(workflow_id, 50)
 
             # Phase 3: Assessment (depends on curriculum + semester)
             await self._update_agent_status(workflow_id, "AssessmentAgent", "running")
-            ass_result = await self._run_agent("assessment", context)
-            results["assessment"] = ass_result
-            await self._update_agent_status(workflow_id, "AssessmentAgent", "completed" if ass_result.success else "failed")
-            await self._update_progress(workflow_id, 70)
+            
+            if mode != "validation_only":
+                ass_result = await self._run_agent("assessment", context)
+                results["assessment"] = ass_result
+                await self._update_agent_status(workflow_id, "AssessmentAgent", "completed" if ass_result.success else "failed")
+                await self._update_progress(workflow_id, 70)
 
             if mode == "assessments_only":
                 return self._build_result(workflow_id, results, errors, start_time)
 
             # Phase 4: OBE (depends on curriculum + assessment)
             await self._update_agent_status(workflow_id, "OBEAgent", "running")
-            obe_result = await self._run_agent("obe", context)
-            results["obe"] = obe_result
-            await self._update_agent_status(workflow_id, "OBEAgent", "completed" if obe_result.success else "failed")
-            await self._update_progress(workflow_id, 85)
+            if mode != "validation_only":
+                obe_result = await self._run_agent("obe", context)
+                results["obe"] = obe_result
+                await self._update_agent_status(workflow_id, "OBEAgent", "completed" if obe_result.success else "failed")
+                await self._update_progress(workflow_id, 85)
 
             if mode == "obe_only":
                 return self._build_result(workflow_id, results, errors, start_time)
 
             # Phase 5: Analytics (depends on everything)
             await self._update_agent_status(workflow_id, "AnalyticsAgent", "running")
-            anl_result = await self._run_agent("analytics", context)
-            results["analytics"] = anl_result
-            await self._update_agent_status(workflow_id, "AnalyticsAgent", "completed" if anl_result.success else "failed")
-            await self._update_progress(workflow_id, 100)
+            if mode != "validation_only":
+                anl_result = await self._run_agent("analytics", context)
+                results["analytics"] = anl_result
+                await self._update_agent_status(workflow_id, "AnalyticsAgent", "completed" if anl_result.success else "failed")
+                await self._update_progress(workflow_id, 100)
+
+            # Phase 6: Validation (Quality Assurance)
+            await self._update_agent_status(workflow_id, "ValidatorAgent", "running")
+            val_result = await self._run_agent("validator", context)
+            results["validator"] = val_result
+            await self._update_agent_status(workflow_id, "ValidatorAgent", "completed" if val_result.success else "failed")
+            # Progress stays at 100 or could be refined
 
             # Final result
             final_result = self._build_result(workflow_id, results, errors, start_time)
@@ -244,6 +270,7 @@ class AgentOrchestrator:
             "assessments": results.get("assessment", AgentResult(agent_name="", success=False, data={}, processing_time=0)).data,
             "obe_report": results.get("obe", AgentResult(agent_name="", success=False, data={}, processing_time=0)).data,
             "analytics": results.get("analytics", AgentResult(agent_name="", success=False, data={}, processing_time=0)).data,
+            "validation_report": results.get("validator", AgentResult(agent_name="", success=False, data={}, processing_time=0)).data,
             "errors": errors,
             "duration_seconds": round(time.time() - start_time, 2),
         }
